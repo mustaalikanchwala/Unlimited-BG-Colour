@@ -16,13 +16,15 @@ let changetext = document.querySelector('h2');
 function startColour(str){
 function Bg(){
     document.body.style.backgroundColor = randomcolour();
-}
+}   if(!intervalid){ // it checks if intervalid == null if its true then further process execute. 
     intervalid = setInterval(Bg,200);
     changetext.innerHTML = "Click to Stop Unlimited colour change "
+}
 }
 function stopColour(){
     clearInterval(intervalid)
     changetext.innerHTML = "Click on Start,For Unlimited BG"
+    intervalid = null; // by this  innerHtml will not overwrite the exsiting colour and utilized less space
     document.body.style.backgroundColor = "white"
 
 }
